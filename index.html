@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" class="bg-[#09090d] text-white">
-<!--
-VaultCord.com Discord member restore bot
-Do not delete elements or change element IDs. This will break the site
-Do not try to host the JS script yourself. This will also break the site when we do updates.
---
-Feel free to customize CSS/styling though! Pretty nice, we don't nickel and dime you over trivial features such as design :)
-READ HERE how to fully customize the messages shown to your members https://github.com/VaultCord/vaultcord.github.io/#verified-message
--->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Verify for Discord</title>
+    <title>認証</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="preload" href="./src/green_circle_checkmark.svg" as="image">
     <link rel="preload" href="./src/red_circle_checkmark.svg" as="image">
@@ -48,6 +40,7 @@ READ HERE how to fully customize the messages shown to your members https://gith
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             document.querySelector("[data-root]").classList.remove("grid", "h-screen");
         }
+        
     </script>
     <style>
         @media (max-width: 768px) {
@@ -75,11 +68,7 @@ READ HERE how to fully customize the messages shown to your members https://gith
 <body>
     <div id="server-banner"></div>
     <div class="grid h-screen place-items-center" data-root>
-        <div class="flex w-full max-w-2xl flex-col items-center px-6 text-center md:px-10 mt-32">
-            <div class="h-9 text-xl mb-32">
-                <img id="serverIcon" hidden style="border-radius: 51%;height: 110px;width: 110px;margin-bottom:10px;"
-                    src="https://avatars.githubusercontent.com/u/138615525?s=200&v=4">
-            </div>
+        <div class="flex w-full max-w-2xl flex-col items-center px-6 text-center md:px-10 mb-auto">
             <div data-loader>
                 <div role="status">
                     <svg aria-hidden="true" class="w-8 h-8 text-[#0f0f17] animate-spin fill-blue-200"
@@ -124,19 +113,9 @@ READ HERE how to fully customize the messages shown to your members https://gith
                 </svg>
             </div>
 
-            <!--
-            You can set vc-invalid-domain for a custom message when trying to access a page downloaded to computer (not very likely error)
-            You can set vc-captcha-require for a custom message to show if your server has the captcha setting enabled
-            You can set vc-verify-success for a custom message after the member has verified
-            -->
-
             <h2 data-server-content id="serverInstructions"
-                vc-invalid-domain="You must host this online, follow our instructions."
-                vc-captcha-require="This server requires a captcha. Click the captcha below to verify."
-                vc-verify-success="認証が成功しました！" class="text-sm font-semibold"></h2>
-
-            <!-- myWidget is for the captcha if you have that option enabled. It's recommended to not delete this element if you don't have to -->
-            <div id="myWidget"></div>
+                vc-invalid-domain="エラーが発生しました。認証をやり直してください"
+                vc-verify-success="認証が成功しました！このページは閉じて構いません！" class="text-sm font-semibold"></h2>
 
             <a id="serverVerifyBtn" href="https://discord.com/oauth2/authorize?client_id=1161250358933323829&redirect_uri=https://riversidepark.github.io/&response_type=code&scope=identify+guilds.join&state=no-captcha"
                 class="text-white border-2 hover:opacity-70 focus:ring-0 focus:outline-none transition duration-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center me-2 mb-3 w-96 hidden">
